@@ -4,7 +4,8 @@ import delivery from "./modules/delivery";
 import cart from "./modules/cart";
 import product from "./modules/product";
 import admin from "./modules/admin";
-const routes = [home, delivery, cart, product, admin];
+import create from "./modules/create";
+const routes = [home, delivery, cart, product, admin, create];
 
 const router = createRouter({
   history: createWebHashHistory(),
