@@ -1,18 +1,17 @@
 <template>
-  <!-- TODO fix la semantica -->
   <div class="button base-button" :class="buttonColor">
     <div class="button-nav-mobile__wrapper" v-if="type == 'nav'">
       <img src="@/assets/images/Icons/Product/cart.png" />
-      <div class="button-nav-mobile__title">{{ text }}</div>
+      <h1 class="button-nav-mobile__title">{{ text }}</h1>
     </div>
     <div :class="classType">
-      <div class="button__card-title" v-if="type == 'card'">{{ text }}</div>
-      <div class="button__title" v-if="type != 'counter' && type != 'order'">
+      <h1 class="button__card-title" v-if="type == 'card'">{{ text }}</h1>
+      <h1 class="button__title" v-if="type != 'counter' && type != 'order'">
         {{ text }}
-      </div>
-      <div class="button__title-borderless" v-else-if="type == 'order'">
+      </h1>
+      <h1 class="button__title-borderless" v-else-if="type == 'order'">
         {{ text }}
-      </div>
+      </h1>
       <img
         v-if="currentImage"
         :src="require(`../../assets/images/Icons/Product/${currentImage}`)"

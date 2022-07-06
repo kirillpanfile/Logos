@@ -10,7 +10,7 @@
         v-if="isBurgherMenuOpen"
         @click="isBurgherMenuOpen = false"
       >
-        132
+        <!--todo Bungher menu-->
       </div>
       <div class="header__logo">LOGOS</div>
       <div class="header__input">
@@ -19,26 +19,18 @@
         <img src="@/assets/images/Icons/Navbar/Search.svg" />
       </div>
       <div class="header__call call">
-        <div class="call__icon" @click="isCallOpen = !isCallOpen">
+        <a class="call__icon" href="tel:+7 (917) 510-57-59">
           <img src="@/assets/images/Icons/Navbar/Calling.png" />
-
-          <!-- TODO Tot blocu faci in a:href cu tel: si scaceste pluginu bettter comments +  fix la semantica -->
-          <div class="call__modal" v-if="isCallOpen">
-            <div class="call__modal-title">Позвоните нам!</div>
-            <a href="tel:+7 (917) 510-57-59" class="call__modal-number"
-              >+7 (917) 510-57-59</a
-            >
-          </div>
-        </div>
+        </a>
 
         <div class="call__desc">
-          <div class="call__title">Контакты:</div>
+          <h1 class="call__title">Контакты:</h1>
           <div class="call__number">+7 (917) 510-57-59</div>
         </div>
       </div>
-      <div class="header__button">
+      <button class="header__button">
         <base-button type="nav" color="green" text="Hello"></base-button>
-      </div>
+      </button>
     </div>
   </div>
 </template>
