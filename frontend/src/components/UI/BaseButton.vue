@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO fix la semantica -->
   <div class="button base-button" :class="buttonColor">
     <div class="button-nav-mobile__wrapper" v-if="type == 'nav'">
       <img src="@/assets/images/Icons/Product/cart.png" />

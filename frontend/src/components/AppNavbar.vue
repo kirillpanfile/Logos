@@ -22,7 +22,7 @@
         <div class="call__icon" @click="isCallOpen = !isCallOpen">
           <img src="@/assets/images/Icons/Navbar/Calling.png" />
 
-          <!-- TODO Tot blocu faci in a:href cu tel: si scaceste pluginu bettter comments -->
+          <!-- TODO Tot blocu faci in a:href cu tel: si scaceste pluginu bettter comments +  fix la semantica -->
           <div class="call__modal" v-if="isCallOpen">
             <div class="call__modal-title">Позвоните нам!</div>
             <a href="tel:+7 (917) 510-57-59" class="call__modal-number"
