@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend writen on NodeJS ExpressJS Sequelize & SQLite",
+  "main": "index.js",
+  "author": "kirillpanfile",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon core/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.2",
+    "sqlite3": "^5.0.8"
+  }
+}
