@@ -1,14 +1,115 @@
-//<BUTTONS (a.btn+tab)>
-// Снипет (HTML): btn
+.base-button{
+	font-family: 'Gilroy';
+	font-weight: 600;
+	border-radius: 8px
+}
 
-.button {
-	display: inline-flex;
-	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
+.button{
+	width: max-content;
+	font-size: 14px;
+	user-select: none;
+	&__wrapper{
+		&-nav, &-prod{
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 10px;
+			max-width: 150px;
+			height: 52px;
+		}
+		&-card{
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			max-width: 137px;
+			height: 44px;
+			padding: 12px 18px;
+			gap: 8px;
+		}
+		&-order{
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			max-width: 211px;
+			height: 59px;
+			text-transform: uppercase;
+			padding: 20px 30px;
+			font-size: 13px;
+		}
+		&-counter{
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			max-width: 62px;
+			height: 44px;
+			padding: 20px 22px;
+			border-radius: 10px;
+			&:hover{
+				box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.7);
+			}
 		}
 	}
-	&._fw {
-		width: 100%;
+
+	&__title{
+		display: flex;
+		align-items: center;
+		padding: 0 10px;
+		border-right: 1px solid rgba(255, 255, 255, 0.3);
+		height: 100%;
+		&-borderless{
+			border: 0;
+		}
 	}
+
+	&__image{
+		width: rem(24);
+		height: rem(24);
+		border-radius: 50%;
+		background-color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: black;
+	}
+}
+
+.button-nav-mobile{
+	&__wrapper{
+		cursor: pointer;
+		max-width: 62px;
+		height: 56px;
+		padding: 8px;
+		gap: 3px;
+		flex-direction: column;
+		align-items: center;
+		display: none;
+		@media (max-width: $mobile){
+			display: flex;
+		}
+	}
+	&__title{
+		font-size: 12px;
+		font-weight: 600;
+		width: 100%;
+		border-top: 1px solid rgba(255, 255, 255, 0.3);;
+	}	
+	
+}
+
+.button-nav-hide{
+	@media (max-width: $mobile) {
+		display: none;
+	}
+}
+
+.green-base{
+	background: $gradient;
+	color: white;
+}
+
+.black-base{
+	color: white;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.2);
 }
