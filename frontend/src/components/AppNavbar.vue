@@ -1,18 +1,13 @@
 <template>
   <div class="header">
-    <div class="header__wrapper">
-      <div class="icon-menu" @click="isBurgherMenuOpen = !isBurgherMenuOpen">
-        <span></span>
-        <div class="icon-menu-text">МЕНЮ</div>
+    <div class="header__container">
+      <div class="mobile-menu" @click="openMenu">
+        <div class="icon-menu" ref="menu">
+          <span></span>
+        </div>
+        <h1 class="icon-menu-text">МЕНЮ</h1>
       </div>
-      <div
-        class="burgher-menu"
-        v-if="isBurgherMenuOpen"
-        @click="isBurgherMenuOpen = false"
-      >
-        <!--todo Bungher menu-->
-      </div>
-      <div class="header__logo">LOGOS</div>
+      <h1 class="header__logo">LOGOS</h1>
       <div class="header__input">
         <img src="@/assets/images/Icons/Navbar/Location.svg" />
         <input type="text" />
@@ -25,24 +20,30 @@
 
         <div class="call__desc">
           <h1 class="call__title">Контакты:</h1>
-          <div class="call__number">+7 (917) 510-57-59</div>
+          <p class="call__number">+7 (917) 510-57-59</p>
         </div>
       </div>
       <button class="header__button">
         <base-button type="nav" color="green" text="Hello"></base-button>
       </button>
     </div>
+    <MobileMenu ref="sidemenu" @close="closeMenu"></MobileMenu>
   </div>
 </template>
 
 <script>
+import MobileMenu from "./UI/MobileMenu.vue";
 export default {
   name: "AppNavbar",
-  data() {
-    return {
-      isCallOpen: false,
-      isBurgherMenuOpen: false,
-    };
+  methods: {
+    openMenu() {
+      this.$refs.menu.classList.add("menu-open");
+      this.$refs.sidemenu.open();
+    },
+    closeMenu() {
+      this.$refs.menu.classList.remove("menu-open");
+    },
   },
+  components: { MobileMenu },
 };
 </script>
