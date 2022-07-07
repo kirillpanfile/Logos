@@ -1,7 +1,14 @@
 <template>
   <main v-if="loaded">
-    {{ typeProducts("Холодные закуски") }}
-    <ProductCard v-for="(item, index) in items" :key="index"></ProductCard>
+    <ProductCard
+      v-for="item in typeProducts('Холод')"
+      :key="item._id"
+      :image="item.image"
+      :title="item.name"
+      :weight="item.weight"
+      :description="item.description"
+      :price="item.price"
+    ></ProductCard>
   </main>
 </template>
 

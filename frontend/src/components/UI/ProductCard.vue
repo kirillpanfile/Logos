@@ -1,34 +1,28 @@
 <template>
-  <!-- <div
-    class="card__wrapper"
-    v-if="loaded"
-    @mouseleave="counterButtons = false"
-    v-for="product in coldProducts"
-    :key="product._id"
-  > -->
-  <div class="card__counter" v-if="cardCounter > 0">{{ cardCounter }}</div>
+  <div class="card__wrapper">
+  <!-- <div class="card__counter"></div>{{ cardCounter }}</div> -->
   <div class="card__image">
-    <img :src="`http://localhost:5000/images/${product.image}`" alt="" />
+    <img :src="`http://localhost:5000/images/${image}`" alt="" />
   </div>
   <div class="card__info">
     <div class="card__hero">
-      <h1>{{ product.name }}</h1>
-      <small>Вес: {{ product.weight }}г</small>
+      <h1>{{ title }}</h1>
+      <small>Вес: {{ weight }}г</small>
     </div>
     <div class="card__description">
-      {{ product.description }}
+      {{ description }}
     </div>
-    <div class="card__footer" v-if="counterButtons != true">
-      <div class="card__price">{{ product.price }} ₽</div>
-      <button @click="counterButtons = true">В корзину ц</button>
+    <div class="card__footer">
+      <div class="card__price">{{ price }} ₽</div>
+      <button >В корзину ц</button>
     </div>
-    <div class="card__footer" v-else>
-      <button @click="decrement">-</button>
-      <div class="card__price">{{ product.price }} ₽</div>
-      <button @click="increment">+</button>
-    </div>
+    <!-- <div class="card__footer" v-else>
+      <button >-</button>
+      <div class="card__price">{{ price }} ₽</div>
+      <button >+</button>
+    </div> -->
   </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -36,6 +30,29 @@
 
 export default {
   name: "ProductCard",
+  props: {
+    image: {
+      type: String,
+      default: '1657118418502jarenye-baklajany-s-chesnokom-i-maionezom_1540793620_10_max.jpg'
+    },
+    title: {
+      type: String,
+      default: "Product name"
+    },
+    weight: {
+      type: Number,
+      default: 0
+    },
+    description: {
+      type: String,
+      default: ''
+    },
+    price: {
+      type: Number,
+      default: 0
+    },
+
+  }
   // data() {
   //   return {
   //     loaded: false,
