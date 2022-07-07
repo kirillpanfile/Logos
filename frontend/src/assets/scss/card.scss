@@ -8,12 +8,28 @@
         height: rem(385);
         border-radius: 10px;
         background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
-        overflow: hidden;
+        position: relative;
+    }
+    &__counter{
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        width: rem(50);
+        height: rem(50);
+        border-radius: 50%;
+        background-color: #79B382;
+        color: white;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     &__image{
         max-height: 227px;
         height: 100%;
         width: 100%;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
         img{
             width: 100%;
             height: 100%;
@@ -37,6 +53,7 @@
         }
         small{
             font-size: 12px;
+            min-width: rem(56);
         }
     }
     &__description{
@@ -49,15 +66,13 @@
     &__footer{
         display: flex;
         justify-content: space-between;
+        font-weight: 600;
         button{
             outline: 1px solid green;
             padding: 5px 10px;
         }
     }
     &__price{
-        flex: 1 1 auto;
-        font-size: 20px;
-        font-weight: 600;
-        
+        font-size: 20px;       
     }
 }
