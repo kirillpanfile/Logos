@@ -1,55 +1,30 @@
-export const state = {
-  allProducts: []
-};
-
-export const mutations = {
-  insertAllProducts(state, payload){
-    state.allProducts = payload
-  }
-};
-export const actions = {
-  async getAllProducts({commit}) {
-    try{
-      let response = await fetch(
-        "http://localhost:5000/api/product/"
-        ).then(response => response.json())
-        commit("insertAllProducts", response)
-    }catch(e){
-      console.log("Error: ",e)
-    }
-  }
-  
-};
-export const getters = {
-  oneProduct(state){
-    return [...state.allProducts][0]
+export default {
+  namespaced: true,
+  state: {
+    products: [],
   },
-  coldProducts(state){
-    let out = []
-    state.allProducts.forEach((element)=>{
-      element.category == "Холодные закуски  " ? out.push(element) : ''
-    })
-    return out
+  mutations: {
+    setProducts(state, payload) {
+      state.products = payload;
+    },
   },
-  hotProducts(state){
-    let out = []
-    state.allProducts.forEach((element)=>{
-      element.category == 'Горячие закуски' ? out.push(element) : ''
-    })
-    return out
+  actions: {
+    async getProducts({ commit }) {
+      try {
+        const request = await fetch("http://localhost:5000/api/product/");
+        commit("setProducts", await request.json());
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    },
   },
-  meatProducts(state){
-    let out = []
-    state.allProducts.forEach((element)=>{
-      element.category == 'Мясные блюда' ? out.push(element) : ''
-    })
-    return out
+  getters: {
+    typeProducts(state) {
+      return function (type) {
+        return state.products.filter((product) => {
+          return product.category.includes(type);
+        });
+      };
+    },
   },
-  drinkProducts(state){
-    let out = []
-    state.allProducts.forEach((element)=>{
-      element.category == 'Напитки' ? out.push(element) : ''
-    })
-    return out
-  }
 };
