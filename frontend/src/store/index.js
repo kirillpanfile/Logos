@@ -5,25 +5,25 @@ import * as products from "./modules/products";
 
 //! lucram pe module
 export default createStore({
-  state: {
-    allProducts: {}
+  state:{
+    allProducts: []
   },
-  actions: {
+  mutations:{
+    insertAllProducts(state, payload){
+      state.allProducts = payload
+    }
+
+  },
+  actions:{
     async getAllProducts({commit}) {
       try{
-        const response = await fetch("http://localhost:5000/api/product/")
-        console.log(await response.json())
-        let getResponse = await response.json()
-        commit("insertAllProducts", getResponse)
+        let response = await fetch(
+          "http://localhost:5000/api/product/"
+          ).then(response => response.json())
+          commit("insertAllProducts", response[0])
       }catch(e){
         console.log("Error: ",e)
       }
-
-  }
-  },
-  mutations: {
-    insertAllProducts(state, payload){
-      state.allProducts = payload
     }
   },
   modules: {
