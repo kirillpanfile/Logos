@@ -3,6 +3,7 @@
     <ProductCard
       v-for="item in typeProducts('Холод')"
       :key="item._id"
+      :id="item._id"
       :image="item.image"
       :title="item.name"
       :weight="item.weight"
@@ -24,16 +25,15 @@ export default {
     };
   },
   computed: {
-    ...mapState(["products"]),
     ...mapGetters(["typeProducts"]),
+  },
+  methods: {
+    ...mapActions(["getProducts"]),
   },
   mounted() {
     this.getProducts().then(() => {
       this.loaded = true;
     });
-  },
-  methods: {
-    ...mapActions(["getProducts"]),
   },
 };
 </script>
