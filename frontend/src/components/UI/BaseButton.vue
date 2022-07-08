@@ -6,7 +6,10 @@
     </div>
     <div :class="classType">
       <h1 class="button__card-title" v-if="type == 'card'">{{ text }}</h1>
-      <h1 class="button__title" v-if="type != 'counter' && type != 'order'">
+      <h1
+        class="button__title"
+        v-else-if="type != 'counter' && type != 'order'"
+      >
         {{ text }}
       </h1>
       <h1 class="button__title-borderless" v-else-if="type == 'order'">
@@ -17,12 +20,14 @@
         :src="require(`../../assets/images/Icons/Product/${currentImage}`)"
         alt=""
       />
-      <div class="button__image" v-if="type == 'nav'">4</div>
+      <div class="button__image" v-if="type == 'nav'">{{ cartQuantity }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters } = createNamespacedHelpers("cart");
 export default {
   name: "BaseButton",
   data() {
@@ -51,6 +56,7 @@ export default {
     },
   },
   computed: {
+    ...mapGetters(["cartQuantity"]),
     classType() {
       return this.type == "nav"
         ? `button__wrapper-${this.type} button-${this.type}-hide `

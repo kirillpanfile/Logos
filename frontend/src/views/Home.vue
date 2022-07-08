@@ -1,35 +1,69 @@
 <template>
-  <div class="hero">
+  <section class="hero">
     <div class="hero__title">Доставка ВКУСНЕЙШИХ БЛЮД за 60 минут</div>
     <div class="hero__subtitle">
       <div class="hero__subtitle-text">Ещё не пробовал?</div>
       <span></span>
     </div>
-  </div>
-  <main v-if="loaded">
-    <ProductCard
-      v-for="item in typeProducts('Холод')"
-      :key="item._id"
-      :id="item._id"
-      :image="item.image"
-      :title="item.name"
-      :weight="item.weight"
-      :description="item.description"
-      :price="item.price"
-    ></ProductCard>
-  </main>
+  </section>
+  <section class="products" v-if="loaded">
+    <div class="products__container">
+      <swiper
+        :slides-per-view="4"
+        :space-between="16"
+        :loop="true"
+        :breakpoints="breakpoints"
+        class="carousel"
+      >
+        <swiper-slide v-for="item in typeProducts('Холод')">
+          <ProductCard
+            :key="item._id"
+            :id="item._id"
+            :image="item.image"
+            :title="item.name"
+            :weight="item.weight"
+            :description="item.description"
+            :price="item.price"
+          ></ProductCard>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </section>
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const { mapState, mapActions, mapGetters } =
-  createNamespacedHelpers("products");
+const { mapActions, mapGetters } = createNamespacedHelpers("products");
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 export default {
   name: "Home",
   data() {
     return {
       loaded: false,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+        },
+        1050: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+        },
+        1440: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+        },
+      },
     };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
   },
   computed: {
     ...mapGetters(["typeProducts"]),
