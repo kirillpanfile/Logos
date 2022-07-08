@@ -74,7 +74,16 @@
 
 .products {
   // .products__wrapper
-  margin-top: 45px;
+  padding-top: 45px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  &__title{
+    color: white;
+    font-weight: 700;
+    font-size: 32px;
+    position: relative;
+    padding-left: 20px;
+    border-left: 4px solid #618967;
+  }
 }
 
 .carousel {

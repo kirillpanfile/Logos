@@ -6,8 +6,10 @@
       <span></span>
     </div>
   </section>
+
   <section class="products" v-if="loaded">
     <div class="products__container">
+    <div class="products__title">ХОЛОДНЫЕ ЗАКУСКИ</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -29,6 +31,82 @@
       </swiper>
     </div>
   </section>
+
+  <section class="products" v-if="loaded">
+    <div class="products__container">
+    <div class="products__title">ГОРЯЧИЕ ЗАКУСКИ</div>
+      <swiper
+        :slides-per-view="4"
+        :space-between="16"
+        :loop="true"
+        :breakpoints="breakpoints"
+        class="carousel"
+      >
+        <swiper-slide v-for="item in typeProducts('Горячие')">
+          <ProductCard
+            :key="item._id"
+            :id="item._id"
+            :image="item.image"
+            :title="item.name"
+            :weight="item.weight"
+            :description="item.description"
+            :price="item.price"
+          ></ProductCard>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </section>
+
+  <section class="products" v-if="loaded">
+    <div class="products__container">
+    <div class="products__title">МЯСНЫЕ БЛЮДА</div>
+      <swiper
+        :slides-per-view="4"
+        :space-between="16"
+        :loop="true"
+        :breakpoints="breakpoints"
+        class="carousel"
+      >
+        <swiper-slide v-for="item in typeProducts('Мясные')">
+          <ProductCard
+            :key="item._id"
+            :id="item._id"
+            :image="item.image"
+            :title="item.name"
+            :weight="item.weight"
+            :description="item.description"
+            :price="item.price"
+          ></ProductCard>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </section>
+
+  <section class="products" v-if="loaded">
+    <div class="products__container">
+    <div class="products__title">НАПИТКИ</div>
+      <swiper
+        :slides-per-view="4"
+        :space-between="16"
+        :loop="true"
+        :breakpoints="breakpoints"
+        class="carousel"
+      >
+        <swiper-slide v-for="item in typeProducts('Напитки')">
+          <ProductCard
+            :key="item._id"
+            :id="item._id"
+            :image="item.image"
+            :title="item.name"
+            :weight="item.weight"
+            :description="item.description"
+            :price="item.price"
+          ></ProductCard>
+        </swiper-slide>
+      </swiper>
+    </div>
+  </section>
+
 </template>
 
 <script>
