@@ -7,9 +7,20 @@
     </div>
   </section>
 
+  <section class="menu">
+    <div class="menu__container">
+      <ul>
+        <li class="active">Холодные закуски</li>
+        <li>Горячие закуски</li>
+        <li>Мясные блюда</li>
+        <li>Напитки</li>
+        <li>все</li>
+      </ul>
+    </div>
+  </section>
   <section class="products" v-if="loaded">
     <div class="products__container">
-    <div class="products__title">ХОЛОДНЫЕ ЗАКУСКИ</div>
+      <div class="products__title">ХОЛОДНЫЕ ЗАКУСКИ</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -34,7 +45,7 @@
 
   <section class="products" v-if="loaded">
     <div class="products__container">
-    <div class="products__title">ГОРЯЧИЕ ЗАКУСКИ</div>
+      <div class="products__title">ГОРЯЧИЕ ЗАКУСКИ</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -59,7 +70,7 @@
 
   <section class="products" v-if="loaded">
     <div class="products__container">
-    <div class="products__title">МЯСНЫЕ БЛЮДА</div>
+      <div class="products__title">МЯСНЫЕ БЛЮДА</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -84,7 +95,7 @@
 
   <section class="products" v-if="loaded">
     <div class="products__container">
-    <div class="products__title">НАПИТКИ</div>
+      <div class="products__title">НАПИТКИ</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -106,7 +117,6 @@
       </swiper>
     </div>
   </section>
-
 </template>
 
 <script>
