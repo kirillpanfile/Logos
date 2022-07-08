@@ -18,9 +18,14 @@
       </ul>
     </div>
   </section>
-  <section class="products" v-if="loaded">
+  <section
+    class="products"
+    v-if="loaded"
+    v-for="(item, index) in categories"
+    :key="index"
+  >
     <div class="products__container">
-      <div class="products__title">ХОЛОДНЫЕ ЗАКУСКИ</div>
+      <div class="products__title">{{ item.name }}</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -28,7 +33,7 @@
         :breakpoints="breakpoints"
         class="carousel"
       >
-        <swiper-slide v-for="item in typeProducts('Холод')">
+        <swiper-slide v-for="item in typeProducts(item.req)">
           <ProductCard
             :key="item._id"
             :id="item._id"
@@ -42,79 +47,9 @@
       </swiper>
     </div>
   </section>
-
-  <section class="products" v-if="loaded">
-    <div class="products__container">
-      <div class="products__title">ГОРЯЧИЕ ЗАКУСКИ</div>
-      <swiper
-        :slides-per-view="4"
-        :space-between="16"
-        :loop="true"
-        :breakpoints="breakpoints"
-        class="carousel"
-      >
-        <swiper-slide v-for="item in typeProducts('Горячие')">
-          <ProductCard
-            :key="item._id"
-            :id="item._id"
-            :image="item.image"
-            :title="item.name"
-            :weight="item.weight"
-            :description="item.description"
-            :price="item.price"
-          ></ProductCard>
-        </swiper-slide>
-      </swiper>
-    </div>
-  </section>
-
-  <section class="products" v-if="loaded">
-    <div class="products__container">
-      <div class="products__title">МЯСНЫЕ БЛЮДА</div>
-      <swiper
-        :slides-per-view="4"
-        :space-between="16"
-        :loop="true"
-        :breakpoints="breakpoints"
-        class="carousel"
-      >
-        <swiper-slide v-for="item in typeProducts('Мясные')">
-          <ProductCard
-            :key="item._id"
-            :id="item._id"
-            :image="item.image"
-            :title="item.name"
-            :weight="item.weight"
-            :description="item.description"
-            :price="item.price"
-          ></ProductCard>
-        </swiper-slide>
-      </swiper>
-    </div>
-  </section>
-
-  <section class="products" v-if="loaded">
-    <div class="products__container">
-      <div class="products__title">НАПИТКИ</div>
-      <swiper
-        :slides-per-view="4"
-        :space-between="16"
-        :loop="true"
-        :breakpoints="breakpoints"
-        class="carousel"
-      >
-        <swiper-slide v-for="item in typeProducts('Напитки')">
-          <ProductCard
-            :key="item._id"
-            :id="item._id"
-            :image="item.image"
-            :title="item.name"
-            :weight="item.weight"
-            :description="item.description"
-            :price="item.price"
-          ></ProductCard>
-        </swiper-slide>
-      </swiper>
+  <section class="map">
+    <div class="map__container">
+      <base-map></base-map>
     </div>
   </section>
 </template>
@@ -147,6 +82,24 @@ export default {
           spaceBetween: 0,
         },
       },
+      categories: [
+        {
+          name: "ХОЛОДНЫЕ ЗАКУСКИ",
+          req: "Холод",
+        },
+        {
+          name: "ГОРЯЧИЕ ЗАКУСКИ",
+          req: "Горячие",
+        },
+        {
+          name: "МЯСНЫЕ БЛЮДА",
+          req: "Мясные",
+        },
+        {
+          name: "НАПИТКИ",
+          req: "Напитки",
+        },
+      ],
     };
   },
   components: {
