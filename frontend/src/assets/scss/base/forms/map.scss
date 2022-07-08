@@ -1,0 +1,7 @@
+.map__container{
+    position: relative;
+}
+
+.leaflet-pane{
+    z-index: 0 !important; //! z-index la map element 
+}

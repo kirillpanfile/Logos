@@ -62,6 +62,46 @@
 
   <section class="map">
     <div class="map__container">
+      <div class="contacts contacts__wrapper">
+        <h1 class="contacts__title">КОНТАКТЫ</h1>
+        <hr>
+        <div class="contacts__info contacts-info">
+          <div class="contacts-info__cell">
+            <div class="contacts-info__image">
+              <img src="../assets/images/Icons/Contacts/Location.svg" />
+            </div>
+            <div class="contacts-info__details">
+              <small>Наш адрес:</small>
+              <h1>МО, городской округ Красногорск, село Ильинкое, 
+                Экспериментальная улица, 10</h1>
+            </div>
+          </div>
+          <div class="contacts-info__cell">
+            <div class="contacts-info__image">
+              <img src="../assets/images/Icons/Contacts/Message.svg" />
+            </div>
+            <div class="contacts-info__details">
+              <small>Наша почта:</small>
+              <h1>LOGOSrestaurant@gmail.com</h1>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="contacts__button">
+          <base-button type="order" text="Забронировать стол" color="green"></base-button>
+          <div>
+            <div class="contacts__number">+7 (917) 510-57-59</div>
+            <small>Звоните или оставляйте заявку</small>
+          </div>
+        </div>
+        <div class="contacts__footer">
+          <h2>Мы в соц сетях:</h2>
+          <img src="../assets/images/Icons/Contacts/Social/facebook.svg" />
+          <img src="../assets/images/Icons/Contacts/Social/vkontakte-logo.svg" />
+          <img src="../assets/images/Icons/Contacts/Social/video-play-button.svg" />
+          <img src="../assets/images/Icons/Contacts/Social/instagram.svg" />
+        </div>
+      </div>
       <base-map></base-map>
     </div>
   </section>
