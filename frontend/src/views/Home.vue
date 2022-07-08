@@ -47,6 +47,35 @@
       </swiper>
     </div>
   </section>
+
+  <section class="about">
+    <div class="about__wrapper">
+      <div class="about__info about-info">
+        <h1 class="about-info__title">НАШЕ КАФЕ</h1>
+        <div class="about-info__text">Мы расположены в одном из самых живописных мест города — на берегу реки, это ваш оазис в черте города, куда можно сбежать от шумного и пыльного мегаполиса. Мы, действительно уникальные, ведь все продумано до мелочей: проект построен из дикого закарпатского сруба, камин в основном зале ресторана и панорамные окна с видом на реку, уютные беседки на берегу реки и лучшая видовая террасса, шатер с посадкой на 200 человек, сказочный детский домик и бассейн.</div>
+        <base-button type="order" text="Посмотреть меню" color="black"></base-button>
+      </div>
+      <div class="about__buttons">
+        <div class="about__button about-button">
+          <img class="about-button__image" src="@/assets/images/Icons/About/onion.svg" />
+          <div class="about-button__text">Свежайшие продукты</div>
+        </div>
+        <div class="about__button about-button">
+          <img class="about-button__image" src="@/assets/images/Icons/About/flash.svg" />
+          <div class="about-button__text">Быстрая доставка</div>
+        </div>
+        <div class="about__button about-button">
+          <img class="about-button__image" src="@/assets/images/Icons/About/chef-hat.svg" />
+          <div class="about-button__text">Лучшие повора</div>
+        </div>
+        <div class="about__button about-button">
+          <img class="about-button__image" src="@/assets/images/Icons/About/onion.svg" />
+          <div class="about-button__text">Свежайшие продукты</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="map">
     <div class="map__container">
       <base-map></base-map>
