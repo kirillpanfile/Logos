@@ -7,11 +7,14 @@ export default {
     addItem(state, item) {
       state.items.push(item);
     },
-    incrementItemQuantity(state, item) {
+    incrementQty(state, id) {
+      const item = state.items.find((item) => item.id === id);
       item.quantity++;
     },
-    decrementItemQuantity(state, item) {
-      item.quantity--;
+    decrementQty(state, id) {
+      const item = state.items.find((item) => item.id === id);
+      if (item.quantity >= 0) item.quantity--;
+      if (item.quantity === 0) state.items.splice(state.items.indexOf(item), 1);
     },
     removeItem(state, item) {
       const index = state.items.indexOf(item);
@@ -22,7 +25,6 @@ export default {
     addToCart({ commit, state }, item) {
       const cartItem = state.items.find((cartItem) => cartItem.id === item.id);
       if (!cartItem) commit("addItem", item);
-      else commit("incrementItemQuantity", cartItem);
     },
     isItemInCart(state) {
       return function (item) {

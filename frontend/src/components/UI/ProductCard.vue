@@ -1,6 +1,6 @@
 <template>
   <div class="card__wrapper">
-    <!-- <div class="card__counter"></div>{{ cardCounter }}</div> -->
+    <span class="card__counter" v-if="quantity">{{ quantity }}</span>
     <div class="card__image">
       <img :src="`http://localhost:5000/images/${image}`" alt="" />
     </div>
@@ -9,21 +9,20 @@
         <h1>{{ title }}</h1>
         <small>Вес: {{ weight }}г</small>
       </div>
-      <div class="card__description">
+      <p class="card__description">
         {{ description }}
-      </div>
-      <div class="card__footer">
-        <div class="card__price">{{ price }} ₽</div>
+      </p>
+      <div class="card__footer" v-if="!quantity">
+        <div class="card__price">{{ totalPrice }} ₽</div>
         <button @click="buy">В корзину</button>
       </div>
-      <!-- <div class="card__footer" v-else>
-        <button>-</button>
-        <div class="card__price">{{ price }} ₽</div>
-        <button>+</button>
-      </div> -->
+      <div class="card__footer" v-if="quantity">
+        <button @click="decrementQty">-</button>
+        <div class="card__price">{{ totalPrice }} ₽</div>
+        <button @click="incrementQty">+</button>
+      </div>
     </div>
   </div>
-  <div v-if="product">true</div>
 </template>
 
 <script>
@@ -62,55 +61,25 @@ export default {
     buy() {
       this.addToCart({ ...this.$props, quantity: 1 });
     },
+    incrementQty() {
+      this.$store.commit("cart/incrementQty", this.id);
+    },
+    decrementQty() {
+      this.$store.commit("cart/decrementQty", this.id);
+    },
   },
   computed: {
     ...mapState(["items"]),
-    product() {
-      if (this.items.length) {
-        return this.items.find((item) => item.id === this.id);
-      }
-      return false;
+    quantity() {
+      return this.items.length > 0
+        ? this.items.find((item) => item.id == this.id)?.quantity
+        : false;
+    },
+    totalPrice() {
+      if (!this.quantity) return this.price;
+      return this.price * this.quantity;
     },
   },
-  // data() {
-  //   return {
-  //     loaded: false,
-  //   };
-  // },
-  // props: {
-  //   counterButtons: {
-  //     type: Boolean,
-  //     default: false,
-  //   },
-  //   cardCounter: {
-  //     type: Number,
-  //     default: 0,
-  //   },
-  // },
-  // methods: {
-  //   check() {
-  //     console.log(this.coldProducts);
-  //   },
-  //   increment() {
-  //     this.cardCounter++;
-  //   },
-  //   decrement() {
-  //     this.cardCounter--;
-  //   },
-  // },
-  // computed: {
-  //   ...mapState({ allProducts: (state) => state.products.allProducts }),
-  //   ...mapGetters({ oneProduct: "oneProduct" }),
-  //   ...mapGetters({ coldProducts: "coldProducts" }),
-  // },
-  // watch: {
-  //   cardCounter() {
-  //     this.cardCounter < 0 ? (this.cardCounter = 0) : "";
-  //   },
-  // },
-  // mounted() {
-  //   this.$store.dispatch("getAllProducts").then(() => (this.loaded = true));
-  // },
 };
 </script>
 

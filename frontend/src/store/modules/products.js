@@ -11,7 +11,9 @@ export default {
   actions: {
     async getProducts({ commit }) {
       try {
-        const request = await fetch("http://localhost:5000/api/product/");
+        const request = await fetch(
+          `${process.env.VUE_APP_API_URL}/api/product`
+        );
         commit("setProducts", await request.json());
       } catch (error) {
         console.error("Error: ", error);
