@@ -1,8 +1,10 @@
 <template>
   <section class="hero">
-    <div class="hero__title">Доставка ВКУСНЕЙШИХ БЛЮД за 60 минут</div>
-    <div class="hero__subtitle">
-      <div class="hero__subtitle-text">Ещё не пробовал?</div>
+    <div class="hero__container">
+      <div class="hero__title">Доставка ВКУСНЕЙШИХ БЛЮД за 60 минут</div>
+      <div class="hero__subtitle">
+        <div class="hero__subtitle-text">Ещё не пробовал?</div>
+      </div>
     </div>
   </section>
   <section class="menu">
@@ -22,6 +24,11 @@
       </ul>
     </div>
   </section>
+
+  <select name="" id="">
+    <option class="options__item">1</option>
+    <option class="options__item">2</option>
+  </select>
 
   <section
     class="products"
