@@ -4,6 +4,7 @@ import BaseModal from "./BaseModal";
 import ProductCard from "./ProductCard";
 import CartItem from "./CartItem";
 import ProductPageCard from "./ProductPageCard";
+import MobileMenu from "./MobileMenu";
 export default [
   BaseButton,
   BaseMap,
@@ -11,4 +12,5 @@ export default [
   ProductCard,
   CartItem,
   ProductPageCard,
+  MobileMenu,
 ];
