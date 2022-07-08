@@ -24,7 +24,7 @@
         </div>
       </div>
       <button class="header__button">
-        <base-button type="nav" color="green" text="Hello"></base-button>
+        <base-button type="nav" color="green" text="Корзина"></base-button>
       </button>
     </div>
     <MobileMenu ref="sidemenu" @close="closeMenu"></MobileMenu>

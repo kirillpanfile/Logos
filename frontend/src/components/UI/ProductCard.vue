@@ -13,13 +13,17 @@
         {{ description }}
       </p>
       <div class="card__footer" v-if="!quantity">
-        <div class="card__price">{{ totalPrice }} ₽</div>
-        <button @click="buy">В корзину</button>
+        <h2 class="card__price">{{ totalPrice }} ₽</h2>
+        <base-button type="card" text="В корзину" @click="buy"></base-button>
       </div>
       <div class="card__footer" v-if="quantity">
-        <button @click="decrementQty">-</button>
+        <base-button type="counter" text="-" @click="decrementQty"
+          >-</base-button
+        >
         <div class="card__price">{{ totalPrice }} ₽</div>
-        <button @click="incrementQty">+</button>
+        <base-button type="counter" text="+" @click="incrementQty"
+          >+</base-button
+        >
       </div>
     </div>
   </div>
