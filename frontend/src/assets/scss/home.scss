@@ -115,3 +115,153 @@
     }
   }
 }
+
+.map {
+  // .map__card
+
+  &__card {
+    width: 100%;
+    max-width: 526px;
+    max-height: 405px;
+    background: #2e2b2c;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 25px 35px;
+    position: absolute;
+    z-index: 9999;
+    top: 35%;
+    left: 8%;
+
+    @media (max-width: $tablet) {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: -320px;
+      margin-top: 190px;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  // .map__card-title
+
+  &__card-title {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    color: #ffffff;
+  }
+
+  // .map__separator
+
+  &__separator {
+    width: 100%;
+    background-image: radial-gradient(#ffffff15, #ffffff00),
+      radial-gradient(#ffffff15, #ffffff00);
+    background-position: 0, 100%, 0, 100%;
+    height: 1px;
+    margin-top: 21px;
+  }
+
+  // .map__info
+
+  &__info {
+    div {
+      display: flex;
+      align-items: center;
+      span {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #cfcfcf;
+        margin-left: 11px;
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    p {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      margin-left: 38px;
+      color: #ffffff;
+    }
+  }
+
+  // .map__contacts
+
+  &__contacts {
+    display: flex;
+    margin-top: 17px;
+    gap: 20px;
+  }
+
+  // .map__footer
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+    margin-top: 27px;
+  }
+
+  // .map__icons
+
+  &__icons {
+    display: flex;
+    gap: 10px;
+  }
+}
+.map-phone {
+  h1 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 31px;
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+  p {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-align: right;
+
+    color: #cfcfcf;
+  }
+}
+
+.map {
+  @include adaptiveValue("height", 612, 712);
+  position: relative;
+}
+.leaflet-container {
+  height: 800px;
+  width: 100%;
+}
+.map__container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -180px;
+  z-index: -1;
+}
