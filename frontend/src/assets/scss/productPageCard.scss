@@ -1,0 +1,40 @@
+.product-page{
+    max-width: 1210px;
+    margin: 0 auto;
+    &__back{
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+    }
+    &__button{
+        max-width: 26px;
+        width: rem(26);
+        height: rem(26);
+        border-radius: 50%;
+        background: $gradient;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__wrapper{
+        margin-top: 25px;
+        max-width: 1210px;
+        background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+        border-radius: 10px;
+        display: flex;
+
+        height: 400px; //! test
+    }
+    &__image{
+        width: 50%;
+        border-radius: 10px 0 0 10px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

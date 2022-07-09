@@ -1,5 +1,5 @@
 <template>
-  <div>Product</div>
+  <product-page-card></product-page-card>
 </template>
 
 <script>
