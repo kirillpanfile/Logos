@@ -271,7 +271,7 @@
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 700;
-    font-size: 23px;
+    @include adaptiveValue("font-size", 23, 18);
     line-height: 31px;
     /* identical to box height */
 
@@ -281,7 +281,8 @@
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
+    @include adaptiveValue("font-size", 13, 10);
+
     line-height: 18px;
     /* identical to box height */
 

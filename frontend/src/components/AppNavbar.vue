@@ -5,9 +5,12 @@
         <div class="icon-menu" ref="menu">
           <span></span>
         </div>
+
         <h1 class="icon-menu-text">МЕНЮ</h1>
       </div>
-      <h1 class="header__logo">LOGOS</h1>
+      <router-link to="/">
+        <h1 class="header__logo">LOGOS</h1>
+      </router-link>
       <div class="header__input">
         <img src="@/assets/images/Icons/Navbar/Location.svg" />
         <input type="text" />
@@ -24,7 +27,9 @@
         </div>
       </div>
       <button class="header__button">
-        <base-button type="nav" color="green" text="Корзина"></base-button>
+        <router-link to="/cart">
+          <base-button type="nav" color="green" text="Корзина"></base-button>
+        </router-link>
       </button>
     </div>
     <MobileMenu ref="sidemenu" @close="closeMenu"></MobileMenu>

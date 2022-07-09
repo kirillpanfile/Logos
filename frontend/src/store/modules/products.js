@@ -28,5 +28,8 @@ export default {
         });
       };
     },
+    popularProducts(state) {
+      return [...state.products].sort(() => Math.random() - 0.5).slice(0, 3);
+    },
   },
 };
