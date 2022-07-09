@@ -8,26 +8,37 @@
       </div>
     </div>
   </section>
-
   <section class="menu">
     <div class="menu__container">
       <ul>
-        <li class="active">Холодные закуски</li>
-        <li>Горячие закуски</li>
-        <li>Мясные блюда</li>
-        <li>Напитки</li>
-        <li>все</li>
+        <li
+          v-for="(item, index) in categories"
+          @click="active = item.name"
+          :class="{ active: active === item.name }"
+          :key="index"
+        >
+          {{ item.name }}
+        </li>
+        <li @click="active = 'ВСЕ'" :class="{ active: active === 'ВСЕ' }">
+          ВСЕ
+        </li>
       </ul>
     </div>
   </section>
+
+  <select name="" id="">
+    <option class="options__item">1</option>
+    <option class="options__item">2</option>
+  </select>
+
   <section
     class="products"
     v-if="loaded"
-    v-for="(item, index) in categories"
+    v-for="(category, index) in activeCategory"
     :key="index"
   >
     <div class="products__container">
-      <div class="products__title">{{ item.name }}</div>
+      <div class="products__title">{{ category.name }}</div>
       <swiper
         :slides-per-view="4"
         :space-between="16"
@@ -35,7 +46,7 @@
         :breakpoints="breakpoints"
         class="carousel"
       >
-        <swiper-slide v-for="item in typeProducts(item.req)">
+        <swiper-slide v-for="item in typeProducts(category.req)">
           <ProductCard
             :key="item._id"
             :id="item._id"
@@ -49,6 +60,7 @@
       </swiper>
     </div>
   </section>
+
 
   <section class="about">
     <div class="about__wrapper">
@@ -196,6 +208,7 @@ export default {
           req: "Напитки",
         },
       ],
+      active: "ВСЕ",
     };
   },
   components: {
@@ -204,6 +217,10 @@ export default {
   },
   computed: {
     ...mapGetters(["typeProducts"]),
+    activeCategory() {
+      if (this.active.includes("ВСЕ")) return this.categories;
+      return [this.categories.find((item) => item.name.includes(this.active))];
+    },
   },
   methods: {
     ...mapActions(["getProducts"]),
@@ -215,5 +232,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
