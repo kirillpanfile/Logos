@@ -36,10 +36,7 @@
         <cart-aditional-item
           v-for="(item, index) in products"
           :key="index"
-          :image="item.image"
-          :title="item.name"
-          :price="item.price"
-          :id="item.id"
+          :item="item"
         >
         </cart-aditional-item>
       </div>
@@ -55,9 +52,9 @@
           <h2>ИТОГО:</h2>
           <span>{{ total }}₽</span>
         </div>
-        <div class="cart-total__inner">
+        <div class="cart-total__inner" v-if="delivery">
           <div class="cart-total__delivery">
-            <span>До бесплатной доставки не хватет:</span>
+            <span>До бесплатной доставки: </span>
             <i>{{ delivery }}₽</i>
           </div>
           <div class="cart-total__total">
