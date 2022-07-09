@@ -32,7 +32,7 @@ export default {
   methods: {
     addToCart() {
       const { _id, image, price, description, name, weight } = this.item;
-      this.$store.commit("cart/addItem", {
+      this.$store.dispatch("cart/addToCart", {
         id: _id,
         image: image,
         price: price,

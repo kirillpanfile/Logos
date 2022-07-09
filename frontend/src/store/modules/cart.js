@@ -25,6 +25,7 @@ export default {
     addToCart({ commit, state }, item) {
       const cartItem = state.items.find((cartItem) => cartItem.id === item.id);
       if (!cartItem) commit("addItem", item);
+      else commit("incrementQty", item.id);
     },
     isItemInCart(state) {
       return function (item) {
