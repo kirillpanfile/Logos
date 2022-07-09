@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import CartItem from "./CartItem";
 import ProductPageCard from "./ProductPageCard";
 import MobileMenu from "./MobileMenu";
+import CartAditionalItem from "./CartAditionalItem";
 export default [
   BaseButton,
   BaseMap,
@@ -13,4 +14,5 @@ export default [
   CartItem,
   ProductPageCard,
   MobileMenu,
+  CartAditionalItem,
 ];

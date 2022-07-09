@@ -61,7 +61,6 @@
     </div>
   </section>
 
-
   <section class="about">
     <div class="about__wrapper">
       <div class="about__info about-info">

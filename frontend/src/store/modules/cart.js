@@ -16,9 +16,9 @@ export default {
       if (item.quantity >= 0) item.quantity--;
       if (item.quantity === 0) state.items.splice(state.items.indexOf(item), 1);
     },
-    removeItem(state, item) {
-      const index = state.items.indexOf(item);
-      state.items.splice(index, 1);
+    removeItem(state, id) {
+      const item = state.items.find((item) => item.id === id);
+      state.items.splice(state.items.indexOf(item), 1);
     },
   },
   actions: {
