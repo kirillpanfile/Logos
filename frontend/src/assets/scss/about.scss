@@ -1,0 +1,61 @@
+.about{
+    max-width: 1360px;
+    max-height: 610px;
+    @include adaptiveValue("height",610,300);
+    margin: 0 auto;
+    background: url("../images/Banners/about.jpg") center/cover no-repeat;
+    @media (max-width: $tablet){
+        display: none;
+    }
+    &__wrapper{
+        @include adaptiveValue("padding",70,40);
+        display: flex;
+        justify-content: space-between;
+    }
+    &__buttons{
+        max-width: rem(470);
+        max-height: rem(470);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
+
+.about-button{
+    cursor: pointer;
+    user-select: none;
+    @include adaptiveValue("width",225,150);
+    @include adaptiveValue("height",225,150);
+    background-color: rgba(80, 75, 74, 0.9);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    color: white;
+    &:hover{
+        color: #79B282;
+        img{
+            filter: invert(50%) sepia(200%) saturate(500%) hue-rotate(800deg) brightness(120%) contrast(40%);
+        }
+    }
+    &__text{      
+        @include adaptiveValue("font-size",18,14);
+    }
+}
+
+.about-info{
+    &__title{
+        color: white;
+        font-size: 32px;
+        font-weight: 700;
+    }
+    &__text{
+        color: #CFCFCF;
+        font-size: 20px;
+        line-height: 25px;
+        max-width: 560px;
+        padding: 25px 0 45px 0;
+    }
+}

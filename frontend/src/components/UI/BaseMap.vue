@@ -34,19 +34,9 @@ export default {
       popupAnchor: [1, -34],
       shadowSize: [41, 41],
     });
-    L.marker([55.84, 37.26], { icon }).addTo(this.map);
+    L.marker([55.84, 37.25], { icon }).addTo(this.map);
   },
 };
 </script>
 
-<style>
-.map {
-  height: 100vh;
-  width: 100%;
-}
-.leaflet-container {
-  height: 712px;
-
-  width: 100%;
-}
-</style>
+<style></style>
